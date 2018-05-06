@@ -103,14 +103,14 @@ func Join(
 	}
 	p.delegate = newDelegate(l, reg, p)
 
-	cfg := memberlist.DefaultLANConfig()
+	cfg := memberlist.DefaultWANConfig()
 	cfg.Name = name.String()
 	cfg.BindAddr = bindHost
 	cfg.BindPort = bindPort
 	cfg.Delegate = p.delegate
 	cfg.Events = p.delegate
-	cfg.GossipInterval = gossipInterval
-	cfg.PushPullInterval = pushPullInterval
+	//cfg.GossipInterval = gossipInterval
+	//cfg.PushPullInterval = pushPullInterval
 	cfg.LogOutput = ioutil.Discard
 
 	if advertiseAddr != "" {
